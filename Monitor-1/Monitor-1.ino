@@ -102,6 +102,9 @@ void loop() {
   watts = readPower(volts, amps);
 
   screen01(volts, amps, watts);
+  // In a perfect world, we should add some hysteresis
+  // to the the outputRelay function, but for now the
+  // 1500mS loop delay should do the job for us.
   outputRelay(volts);
   
   delay(1500);
