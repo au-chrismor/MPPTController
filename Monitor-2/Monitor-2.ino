@@ -20,7 +20,7 @@ LiquidCrystal_I2C lcd(0x27,20,4);  // set the LCD address to 0x27 for a 20 chars
 // 30A = 66mV/A
 // 20A = 100mV/A
 // 5A  = 185mV/A
-ACS712 acs(A1, (float)VREF, 1023, 185);
+ACS712 acs(IBATT, (float)VREF, 1023, 185);
 
 float lastVolts = 0.0;
 float lastAmps = 0.0;
@@ -95,7 +95,7 @@ void setup() {
   lcd.backlight();
   // This is very arbitrary for now
   // Set the PWM output to 50% and see what happens...
-  analogWrite(DRIVE, 128);
+  analogWrite(DRIVE, 250);
 }
 
 void loop() {
